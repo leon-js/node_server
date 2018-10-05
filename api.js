@@ -32,5 +32,23 @@ module.exports = {
           connection.release();
       })
     })
+  },
+  getContentAll(req, res, next) {
+    pool.getConnection((err, connection) => {
+      var sql = sqlMap.getContentAll;
+      connection.query(sql, (err, result) => {
+          res.json(result);
+          connection.release();
+      })
+    })
+  },
+  getUsers(req, res, next) {
+    pool.getConnection((err, connection) => {
+      var sql = sqlMap.getUsers;
+      connection.query(sql, (err, result) => {
+          res.json(result);
+          connection.release();
+      })
+    })
   }
 }

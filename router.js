@@ -10,4 +10,11 @@ router.post('/setValue', (req, res, next) => {
   api.setValue(req, res, next);
 });
 
+router.get('/getContentAll', (req, res, next) => {
+    api.getContentAll(req, res, next);
+});
+
+router.get('/getUsers', (req, res, next) => {
+    api.getUsers(req, res, next);
+});
 module.exports = router;
