@@ -50,5 +50,15 @@ module.exports = {
           connection.release();
       })
     })
+  },
+  getContentAllforKind(req, res, next) {
+    var kind = req.query.kind;
+    pool.getConnection((err, connection) => {
+      var sql = sqlMap.getContentAllforKind;
+      connection.query(sql,[kind], (err, result) => {
+          res.json(result);
+          connection.release();
+      })
+    })
   }
 }

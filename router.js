@@ -17,4 +17,8 @@ router.get('/getContentAll', (req, res, next) => {
 router.get('/getUsers', (req, res, next) => {
     api.getUsers(req, res, next);
 });
+
+router.get('/getContentAllforKind', (req, res, next) => {
+    api.getContentAllforKind(req, res, next);
+});
 module.exports = router;
