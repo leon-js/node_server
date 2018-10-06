@@ -6,8 +6,8 @@ router.get('/getValue', (req, res, next) => {
   api.getValue(req, res, next);
 });
 
-router.post('/setValue', (req, res, next) => {
-  api.setValue(req, res, next);
+router.post('/setUpdate', (req, res, next) => {
+  api.setUpdate(req, res, next);
 });
 
 router.get('/getContentAll', (req, res, next) => {

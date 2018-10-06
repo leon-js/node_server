@@ -22,12 +22,12 @@ module.exports = {
       })
     })
   },
-  setValue(req, res, next) {
+  setUpdate(req, res, next) {
     console.log(req.body);
-    var id = req.body.id, name = req.body.name;
+    var title = req.body.title, detailed = req.body.detailed,id = req.body.id;
     pool.getConnection((err, connection) => {
-      var sql = sqlMap.setValue;
-      connection.query(sql, [name, id], (err, result) => {
+      var sql = sqlMap.setUpdate;
+      connection.query(sql, [title, detailed,id], (err, result) => {
           res.json(result);
           connection.release();
       })
