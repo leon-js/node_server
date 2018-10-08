@@ -60,5 +60,30 @@ module.exports = {
           connection.release();
       })
     })
-  }
+  },
+  getKind(req, res, next) {
+    var id = req.query.id;
+    pool.getConnection((err, connection) => {
+      var sql = sqlMap.getKind;
+      connection.query(sql, [id], (err, result) => {
+          res.json(result);
+          connection.release();
+      })
+    })
+  },
+  addValue(req, res, next) {
+    var title = req.body.title,
+    detailed = req.body.detailed,
+    time = req.body.time,
+    kind = req.body.kind,
+    dateTim = req.body.dateTim;
+    pool.getConnection((err, connection) => {
+      var sql = sqlMap.addValue;
+      connection.query(sql,[title,detailed,time,kind,dateTim], (err, result) => {
+          res.json(result);
+          connection.release();
+      })
+    })
+  },
+
 }

@@ -21,4 +21,12 @@ router.get('/getUsers', (req, res, next) => {
 router.get('/getContentAllforKind', (req, res, next) => {
     api.getContentAllforKind(req, res, next);
 });
+
+router.post('/addValue', (req, res, next) => {
+    api.addValue(req, res, next);
+});
+
+router.get('/getKind', (req, res, next) => {
+    api.getKind(req, res, next);
+});
 module.exports = router;
