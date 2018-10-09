@@ -29,4 +29,8 @@ router.post('/addValue', (req, res, next) => {
 router.get('/getKind', (req, res, next) => {
     api.getKind(req, res, next);
 });
+
+router.post('/deleteValue', (req, res, next) => {
+    api.deleteValue(req, res, next);
+});
 module.exports = router;

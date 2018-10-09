@@ -6,8 +6,9 @@ var sqlMap = {
     getUsers: 'SELECT * FROM users',
     getValue: 'SELECT * FROM content WHERE id = ?',
     getContentAllforKind: 'SELECT * FROM content WHERE kind=(SELECT kind FROM kinds WHERE id = ?) ORDER BY time DESC',
-    addValue: 'insert into content (title,detailed,time,kind,dateTim) values (?,?,?,?,?)',
-    getKind: 'SELECT kind FROM kinds WHERE id=?'
+    addValue: 'INSERT INTO content (title,detailed,time,kind,dateTim) VALUES (?,?,?,?,?)',
+    getKind: 'SELECT kind FROM kinds WHERE id=?',
+    deleteValue: 'DELETE FROM content WHERE id=?'
   }
   
   module.exports = sqlMap;
