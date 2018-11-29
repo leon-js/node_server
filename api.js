@@ -34,9 +34,10 @@ module.exports = {
     })
   },
   getContentAll(req, res, next) {
+    var userid = req.query.userid
     pool.getConnection((err, connection) => {
       var sql = sqlMap.getContentAll;
-      connection.query(sql, (err, result) => {
+      connection.query(sql,[userid], (err, result) => {
           res.json(result);
           connection.release();
       })
