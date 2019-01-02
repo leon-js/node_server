@@ -54,9 +54,10 @@ module.exports = {
   },
   getContentAllforKind(req, res, next) {
     var kind = req.query.kind;
+    var userid = req.query.userid; 
     pool.getConnection((err, connection) => {
       var sql = sqlMap.getContentAllforKind;
-      connection.query(sql,[kind], (err, result) => {
+      connection.query(sql,[kind,userid], (err, result) => {
           res.json(result);
           connection.release();
       })
