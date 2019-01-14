@@ -33,4 +33,5 @@ router.get('/getKind', (req, res, next) => {
 router.post('/deleteValue', (req, res, next) => {
     api.deleteValue(req, res, next);
 });
+
 module.exports = router;
