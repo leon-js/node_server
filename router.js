@@ -39,13 +39,5 @@ router.post('/deleteValue', (req, res, next) => {
 // });
 
 
-// router.post('/getB', (req, res, next) => {
-//     api.deleteValue(req, res, next);
-// });
-
-
-// router.post('/getC', (req, res, next) => {
-//     api.deleteValue(req, res, next);
-// });
 
 module.exports = router;
