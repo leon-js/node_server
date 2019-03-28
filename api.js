@@ -107,4 +107,17 @@ module.exports = {
       })
     })
   },
+  addUsers(req, res, next) {
+    var username = req.body.username,
+    AccountNumber = req.body.AccountNumber,
+    password = req.body.password,
+    sudo = req.body.sudo;
+    pool.getConnection((err, connection) => {
+      var sql = sqlMap.addUsers;
+      connection.query(sql,[username,AccountNumber,password,sudo], (err, result) => {
+          res.json(result);
+          connection.release();
+      })
+    })
+  },
 }
