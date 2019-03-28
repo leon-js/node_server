@@ -34,6 +34,10 @@ router.post('/deleteValue', (req, res, next) => {
     api.deleteValue(req, res, next);
 });
 
+router.get('/getDeveloperBlog', (req, res, next) => {
+    api.getDeveloperBlog(req, res, next);
+});
+
 // router.post('/getA', (req, res, next) => {
 //     api.deleteValue(req, res, next);
 // });

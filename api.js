@@ -43,6 +43,15 @@ module.exports = {
       })
     })
   },
+  getDeveloperBlog(req, res, next) {
+    pool.getConnection((err, connection) => {
+      var sql = sqlMap.getDeveloperBlog;
+      connection.query(sql, (err, result) => {
+          res.json(result);
+          connection.release();
+      })
+    })
+  },
   getUsers(req, res, next) {
     pool.getConnection((err, connection) => {
       var sql = sqlMap.getUsers;
@@ -79,9 +88,10 @@ module.exports = {
     time = req.body.time,
     kind = req.body.kind,
     dateTim = req.body.dateTim;
+    userid = req.body.userid
     pool.getConnection((err, connection) => {
       var sql = sqlMap.addValue;
-      connection.query(sql,[title,detailed,time,kind,dateTim], (err, result) => {
+      connection.query(sql,[title,detailed,time,kind,dateTim,userid], (err, result) => {
           res.json(result);
           connection.release();
       })
