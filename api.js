@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const dbConfig = require('./db');
 const sqlMap = require('./sqlMap');
+var lastid = 2;
 
 const pool = mysql.createPool({
   host: dbConfig.mysql.host,
@@ -53,13 +54,19 @@ module.exports = {
     })
   },
   getUsers(req, res, next) {
-    pool.getConnection((err, connection) => {
-      var sql = sqlMap.getUsers;
-      connection.query(sql, (err, result) => {
-          res.json(result);
-          connection.release();
+    var id = req.query.Jm;
+    var end = parseInt(id.replace(/[^0-9]/ig,""))
+    if( end === lastid ){
+      console.log('不要想通过地址栏查看我数据库哦！')
+    }else if( end%97588396 == 0 ){
+      pool.getConnection((err, connection) => {
+        var sql = sqlMap.getUsers;
+        connection.query(sql, (err, result) => {
+            res.json(result);
+            connection.release();
+        })
       })
-    })
+    }
   },
   getContentAllforKind(req, res, next) {
     var kind = req.query.kind;
