@@ -127,4 +127,8 @@ module.exports = {
       })
     })
   },
+  // uploadheadimg(req, res, next) {
+  //   uploadheadimg();
+  // }
+  
 }

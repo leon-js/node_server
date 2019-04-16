@@ -10,7 +10,9 @@ var sqlMap = {
     getKind: 'SELECT kind FROM kinds WHERE id=?',
     deleteValue: 'DELETE FROM content WHERE id=?',
     getDeveloperBlog: 'select * from content where userid = 2 order by id desc limit 12',
-    addUsers: 'INSERT INTO users (username,AccountNumber,password,sudo) VALUES (?,?,?,?);'
+    addUsers: 'INSERT INTO users (username,AccountNumber,password,sudo) VALUES (?,?,?,?);',
+    changeHeadimg: 'UPDATE users SET Head_portrait = ? where username = ?',
+    selectHeadimg: 'SELECT Head_portrait FROM users WHERE username = ?'
   }
   
   module.exports = sqlMap;

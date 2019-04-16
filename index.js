@@ -1,11 +1,18 @@
 const routerApi = require('./router');
 const bodyParser = require('body-parser'); // post 数据是需要
 const express = require('express');
+var uploadheadimg = require('./uploadheadimg');
 const app = express();
 
 app.use(bodyParser.json());
 // 后端api路由
 app.use('/api', routerApi);
+
+//设置静态资源
+app.use(express.static('./img')); 
+
+app.use('/api/uploadheadimg', uploadheadimg);
+
 // app.get("/",(req,res) => {
 //   // res.write(`<link href="favicon.ico" rel="shortcut icon"></link>`)
 //   res.send("INDES");
