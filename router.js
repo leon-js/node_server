@@ -42,6 +42,10 @@ router.post('/addUsers', (req, res, next) => {
     api.addUsers(req, res, next);
 });
 
+router.post('/register', (req, res, next) => {
+    api.addUsers(req, res, next);
+});
+
 // router.post('/getA', (req, res, next) => {
 //     api.deleteValue(req, res, next);
 // });

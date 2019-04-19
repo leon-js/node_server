@@ -53,7 +53,7 @@ module.exports = {
       })
     })
   },
-  getUsers(req, res, next) {
+  getUsers(req, res, next) { //新旧共用api
     var id = req.query.Jm;
     var end = parseInt(id.replace(/[^0-9]/ig,""))
     if( end === lastid ){
@@ -127,8 +127,16 @@ module.exports = {
       })
     })
   },
-  // uploadheadimg(req, res, next) {
-  //   uploadheadimg();
-  // }
-  
+  register(req, res, next) {
+    var username = req.body.username,
+    AccountNumber = req.body.AccountNumber,
+    password = req.body.password
+    pool.getConnection((err, connection) => {
+      var sql = sqlMap.register;
+      connection.query(sql,[username,AccountNumber,password], (err, result) => {
+          res.json(result);
+          connection.release();
+      })
+    })
+  },
 }
