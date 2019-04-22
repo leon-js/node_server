@@ -46,10 +46,9 @@ router.post('/register', (req, res, next) => {
     api.addUsers(req, res, next);
 });
 
-// router.post('/getA', (req, res, next) => {
-//     api.deleteValue(req, res, next);
-// });
-
+router.get('/selectClassification', (req, res, next) => {
+    api.selectClassification(req, res, next);
+});
 
 
 module.exports = router;

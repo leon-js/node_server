@@ -14,7 +14,9 @@ var sqlMap = {
     //新api
     changeHeadimg: 'UPDATE users SET Head_portrait = ? where username = ?',
     selectHeadimg: 'SELECT Head_portrait FROM users WHERE username = ?',
-    register: 'INSERT INTO users (username,AccountNumber,password) VALUES (?,?,?)'
+    register: 'INSERT INTO users (username,AccountNumber,password) VALUES (?,?,?)',
+    selectClassification: 'SELECT classification FROM users WHERE username = ?',
+    addClassification: 'UPDATE users SET classification = ? where username = ?'
   }
   
   module.exports = sqlMap;
