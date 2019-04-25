@@ -50,5 +50,9 @@ router.get('/selectClassification', (req, res, next) => {
     api.selectClassification(req, res, next);
 });
 
+router.post('/addClassification', (req, res, next) => {
+    api.addClassification(req, res, next);
+});
+
 
 module.exports = router;

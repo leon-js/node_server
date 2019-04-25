@@ -149,4 +149,15 @@ module.exports = {
       })
     })
   },
+  addClassification(req, res, next) {
+    var username = req.body.username,
+    classification = req.body.classification;
+    pool.getConnection((err, connection) => {
+      var sql = sqlMap.addClassification;
+      connection.query(sql,[classification,username], (err, result) => {
+          res.json(result);
+          connection.release();
+      })
+    })
+  },
 }
