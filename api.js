@@ -160,4 +160,15 @@ module.exports = {
       })
     })
   },
+  getContentforKind(req, res, next) {
+    var kind = req.query.kind,uname = req.query.uname;
+    console.log(kind,uname);
+    pool.getConnection((err, connection) => {
+      var sql = sqlMap.getContentforKind;
+      connection.query(sql,[kind,uname], (err, result) => {
+          res.json(result);
+          connection.release();
+      })
+    })
+  },
 }

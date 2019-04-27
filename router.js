@@ -54,5 +54,9 @@ router.post('/addClassification', (req, res, next) => {
     api.addClassification(req, res, next);
 });
 
+router.get('/getContentforKind', (req, res, next) => {
+    api.getContentforKind(req, res, next);
+});
+
 
 module.exports = router;
