@@ -162,12 +162,15 @@ module.exports = {
   },
   getContentforKind(req, res, next) {
     var kind = req.query.kind,uname = req.query.uname;
-    console.log(kind,uname);
     pool.getConnection((err, connection) => {
       var sql = sqlMap.getContentforKind;
       connection.query(sql,[kind,uname], (err, result) => {
+        setTimeout(()=>{
           res.json(result);
           connection.release();
+        },1000)
+          // res.json(result);
+          // connection.release();
       })
     })
   },

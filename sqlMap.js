@@ -17,7 +17,7 @@ var sqlMap = {
     register: 'INSERT INTO users (username,AccountNumber,password) VALUES (?,?,?)',
     selectClassification: 'SELECT classification FROM users WHERE username = ?',
     addClassification: 'UPDATE users SET classification = ? where username = ?',
-    getContentforKind: 'select uname,title,headimg,dateTim from content where kind = ? and uname = ? ORDER BY time DESC',
+    getContentforKind: 'select uname,title,headimg,dateTim,star from content where kind = ? and uname = ? ORDER BY time DESC',
   }
   
   module.exports = sqlMap;
