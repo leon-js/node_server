@@ -174,4 +174,17 @@ module.exports = {
       })
     })
   },
+  isStar(req, res, next) {
+    var star = req.body.star,
+    praiseUsers = req.body.praiseUsers,
+    id = req.body.id;
+    console.log(star,praiseUsers,id);
+      pool.getConnection((err, connection) => {
+        var sql = sqlMap.isStar;
+        connection.query(sql,[star,praiseUsers,id], (err, result) => {
+            res.json(result);
+            connection.release();
+        })
+      })
+  },
 }

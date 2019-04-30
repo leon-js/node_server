@@ -58,5 +58,9 @@ router.get('/getContentforKind', (req, res, next) => {
     api.getContentforKind(req, res, next);
 });
 
+router.post('/isStar', (req, res, next) => {
+    api.isStar(req, res, next);
+});
+
 
 module.exports = router;
