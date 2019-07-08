@@ -62,5 +62,9 @@ router.post('/isStar', (req, res, next) => {
     api.isStar(req, res, next);
 });
 
+// 测试api
+router.get('/jsonpTest', (req, res, next) => {
+    api.jsonpTest(req, res, next);
+});
 
 module.exports = router;

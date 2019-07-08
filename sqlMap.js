@@ -18,7 +18,10 @@ var sqlMap = {
     selectClassification: 'SELECT classification FROM users WHERE username = ?',
     addClassification: 'UPDATE users SET classification = ? WHERE username = ?',
     getContentforKind: 'SELECT uname,title,headimg,dateTim,star,kind,id,praiseUsers FROM content WHERE kind = ? AND uname = ? ORDER BY time DESC',
-    isStar: 'UPDATE content SET star = ?,praiseUsers = ? WHERE id = ?'
+    isStar: 'UPDATE content SET star = ?,praiseUsers = ? WHERE id = ?',
+
+    // 测试api
+    jsonpTest: 'select * from users'
   }
   
   module.exports = sqlMap;

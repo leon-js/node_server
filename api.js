@@ -187,4 +187,22 @@ module.exports = {
         })
       })
   },
+  // 测试api
+  // jsonp
+  jsonpTest(req, res, next) {
+    var callback = req.query
+    console.log(callback)
+    pool.getConnection((err, connection) => {
+      var sql = sqlMap.jsonpTest;
+      connection.query(sql, (err, result) => {
+          if(callback.fun) {
+            res.type('text/javascript');
+            res.send(callback.fun + '(' + JSON.stringify(result) + ')');
+          } else {
+            res.json(result);
+            connection.release();
+          }
+      })
+    })
+  }
 }
