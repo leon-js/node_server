@@ -1,7 +1,8 @@
 const routerApi = require('./router');
 const bodyParser = require('body-parser'); // post 数据是需要
 const express = require('express');
-var uploadheadimg = require('./uploadheadimg');
+const uploadheadimg = require('./uploadheadimg');
+const uploadImg = require('./uploadimg');
 const app = express();
 
 app.use(bodyParser.json());
@@ -10,8 +11,11 @@ app.use('/api', routerApi);
 
 //设置静态资源
 app.use(express.static('./img')); 
+app.use(express.static('./upload')); 
+app.use(express.static('./uploadblogimg')); 
 
-app.use('/api/uploadheadimg', uploadheadimg);
+app.use('/api/uploadAvatarUrl', uploadheadimg);
+app.use('/api/uploadImg', uploadImg);
 
 // app.get("/",(req,res) => {
 //   // res.write(`<link href="favicon.ico" rel="shortcut icon"></link>`)

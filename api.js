@@ -24,7 +24,6 @@ module.exports = {
     })
   },
   setUpdate(req, res, next) {
-    console.log(req.body);
     var title = req.body.title, detailed = req.body.detailed,id = req.body.id;
     pool.getConnection((err, connection) => {
       var sql = sqlMap.setUpdate;
@@ -57,7 +56,7 @@ module.exports = {
     var id = req.query.Jm;
     var end = parseInt(id.replace(/[^0-9]/ig,""))
     if( end === lastid ){
-      console.log('不要想通过地址栏查看我数据库哦！')
+      
     }else if( end%97588396 == 0 ){
       pool.getConnection((err, connection) => {
         var sql = sqlMap.getUsers;
@@ -178,7 +177,6 @@ module.exports = {
     var star = req.body.star,
     praiseUsers = req.body.praiseUsers,
     id = req.body.id;
-    console.log(star,praiseUsers,id);
       pool.getConnection((err, connection) => {
         var sql = sqlMap.isStar;
         connection.query(sql,[star,praiseUsers,id], (err, result) => {
@@ -191,7 +189,6 @@ module.exports = {
   // jsonp
   jsonpTest(req, res, next) {
     var callback = req.query
-    console.log(callback)
     pool.getConnection((err, connection) => {
       var sql = sqlMap.jsonpTest;
       connection.query(sql, (err, result) => {
